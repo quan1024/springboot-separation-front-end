@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="order by dede58.com" />
+  <title>游戏管理系统</title>
+  <link rel="stylesheet" href="css/public.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!--头部-->
+  <header class="publicHeader">
+    <h1><a href="index.html" id="shouye">游戏管理系统</a></h1>
+    <div class="publicHeaderR">
+      <div class="touxiang"></div>
+      <p>
+        <span>下午好！</span><span style="color: #fff21b"> Admin</span> ,
+        欢迎你！
+      </p>
+      <a href="login.html">退出</a>
+    </div>
+  </header>
+  <!--时间-->
+  <section class="publicTime">
+    <span id="time"></span>
+  </section>
+  <!--主体内容-->
+  <section class="publicMian">
+    <div class="left">
+      <h2 class="leftH2">
+        <span class="span1"></span>功能列表 <span></span>
+      </h2>
+      <nav>
+        <ul class="list">
+          <li><a href="heroList.html">英雄管理</a></li>
+          <li id="active"><a href="userList.html">玩家管理</a></li>
+          <li><a href="password.html">密码修改</a></li>
+          <li><a href="login.html">退出系统</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="right">
+      <div class="location">
+        <strong>你现在所在的位置是:</strong>
+        <span>玩家管理页面</span>
+      </div>
+      <div class="search">
+        <form>
+          <span>用户ID：</span>
+          <input type="text" placeholder="请输入用户名" name="id" />
+          <input id="search" type="button" value="" />
+          <a href="userAdd.html">添加用户</a>
+        </form>
+      </div>
+      <!--用户-->
+      <table class="providerTable" cellpadding="0" cellspacing="0">
+        <tr class="firstTr">
+          <th width="10%">用户ID</th>
+          <th width="10%">用户名称</th>
+          <th width="10%">等级</th>
+          <th width="10%">使用英雄</th>
+          <th width="20%" id="clearborder">操作</th>
+        </tr>
+        <tbody id="t-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="footer"></footer>
+
+  <script src="js/time.js"></script>
+  <script src="1.js"></script>
+  <script>
+    $(function () {
+      setInterval(fn, 1000);
+      $.ajax({
+        type: "GET",
+        url: "http://101.201.102.232:8088/api/getAllPlayer", //访问的链接
+        dataType: "json", //数据格式设置为jsonp
+        json: "callback", //Jquery生成验证参数的名称
+        success: function (data) {
+          //成功的回调函数
+          var str = "";
+          for (i in data) {
+            str +=
+              "<tr class='tr-td'> " +
+              "<td>" +
+              data[i].id +
+              "</td>" +
+              "<td>" +
+              data[i].name +
+              "</td>" +
+              "<td>" +
+              data[i].degree +
+              "</td>" +
+              "<td>" +
+              data[i].playhero +
+              "</td>" +
+              "<td>" +
+              "<button onclick=jump1(this) id=" +
+              data[i].id +
+              " class='editbutton'>编辑</button>" +
+              " " +
+              "<input type='button' id=" +
+              data[i].id +
+              "  value='删除' onclick=userDel(this)  class='delectbutton'>" +
+              "</td>" +
+              "</tr>";
+          }
+          $("#t-body").html(str);
+        },
+        error: function (e) {
+          alert("error");
+        },
+      });
+    });
+
+    $("#search").click(function () {
+      if ($("[name='id']").val() == '') {
+        alert("输入值为空");
+        return;
+      }
+      $.ajax({
+        type: "POST",
+        url: "http://101.201.102.232:8088/api/selectPlayerById", //访问的链接
+        data: {
+          "id": parseInt($("[name='id']").val())
+        },
+        //dataType: "json", //数据格式设置为jsonp
+        //json: "callback", //Jquery生成验证参数的名称
+        success: function (user_data) {
+          //成功的回调函数
+          var str = "";
+          console.log(user_data);
+          str +=
+            "<tr class='tr-td'>" +
+            "<td>" +
+            user_data.id +
+            "</td>" +
+            "<td>" +
+            user_data.name +
+            "</td>" +
+            "<td>" +
+            user_data.degree +
+            "</td>" +
+            "<td>" +
+            user_data.playhero +
+            "</td>" +
+            "<td>" +
+            "<button onclick=jump1(this) id=" +
+            user_data.id +
+            " class='editbutton'>编辑</button>" +
+            " " +
+            "<input type='button' id=" +
+            user_data.id +
+            "  value='删除' onclick=userDel(this)  class='delectbutton'>" +
+            "</td>" +
+            "</tr>";
+          $("#t-body").html(str);
+        },
+        error: function (e) {
+          alert("error");
+        },
+      });
+    });
+  </script>
+</body>
+
+</html>

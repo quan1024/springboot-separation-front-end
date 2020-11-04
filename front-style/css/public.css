@@ -1,0 +1,330 @@
+/*dede58.com 做最好的织梦整站模板下载网站*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-size: 12px;
+    /* background: linear-gradient(to bottom,rgb()); */
+    background: url(../img/indbg.jpg) no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+#shouye {
+    color: white;
+}
+
+#shouye:hover {
+    color: white;
+}
+
+
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*公共样式，头部*/
+.publicHeader {
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    background: linear-gradient(to right, rgba(27, 27, 27, 0.9), rgba(134, 98, 30, 0.7));
+}
+
+.publicHeader h1 {
+    float: left;
+    color: white;
+    font-size: 27px;
+    padding-left: 100px;
+    text-shadow: 2px 2px 6px rgb(146, 92, 11);
+
+}
+
+.publicHeaderR {
+    float: right;
+    color: #fff;
+    margin-right: 50px;
+    position: relative;
+
+}
+
+.touxiang {
+    position: absolute;
+    top: 4px;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../img/ppic.png) no-repeat center;
+}
+
+.publicHeaderR p {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.publicHeaderR a {
+    width: 60px;
+    height: 28px;
+    display: inline-block;
+    border: 1px solid rgb(255, 113, 5);
+    background-color: rgb(255, 113, 5);
+    line-height: 28px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+
+}
+
+.publicHeaderR a:hover,
+.publicHeaderR a:active {
+   border-radius: 4px;
+    font-weight: bold;
+    background: linear-gradient(to right, rgba(255, 113, 5, 0.7), rgba(255, 113, 5, 0.3));
+}
+
+/*时间*/
+.publicTime {
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background: linear-gradient(to bottom, rgba(245, 249, 248, 0.8), rgba(226, 236, 245, 0.6), rgba(226, 236, 245, 0.6), rgba(224, 237, 246, 0.8));
+    /* background: linear-gradient(to bottom,#f5f9f8,#eef2fb,#e2ecf5,#e2ecf5,#e0edf6); */
+    padding-left: 20px;
+    color: white;
+}
+
+#time {
+    float: left;
+    background: url("../img/time.png") 0 center no-repeat;
+    padding-left: 26px;
+}
+
+.publicTime a {
+    float: right;
+    margin-right: 50px;
+    color: #626367;
+}
+
+/*公共部分主体内容*/
+.publicMian {
+    height: 100%;
+    border-top: 1px solid #c2ccd5;
+    display: flex;
+    /*变为弹性盒模型*/
+    display: -webkit-flex;
+    background: #fff;
+}
+
+/*左边*/
+.left {
+    width: 168px;
+    /* background: url("../img/leftBg.png") 0 0 repeat-y; */
+    background: linear-gradient(to right, rgba(56, 56, 56, 0.4), rgba(0, 0, 0, 0.1));
+    margin-right: 10px;
+    /*height: 520px;*/
+    min-height: 520px;
+
+}
+
+.leftH2 {
+    width: 140px;
+    height: 30px;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #60b3e7;
+    margin: 10px auto;
+    box-shadow: 4px 4px rgba(212, 212, 212, 0.7);
+}
+
+.leftH2 span {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: radial-gradient(#70c2f4, #3a8dc1, #035384, #4696c7, #83d1f5);
+    border-radius: 50%;
+}
+
+.span1 {
+    margin-right: 10px;
+}
+
+.span2 {
+    margin-left: 12px;
+}
+
+.list {
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+.list li {
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+}
+
+.list li:nth-child(1) {
+    background: url("../img/zd.png") 0 center no-repeat;
+}
+
+.list li:nth-child(2) {
+    background: url("../img/gys.png") 0 center no-repeat;
+}
+
+.list li:nth-child(3) {
+    background: url("../img/yh.png") 0 center no-repeat;
+}
+
+.list li:nth-child(4) {
+    background: url("../img/mm.png") 0 center no-repeat;
+}
+
+.list li:nth-child(5) {
+    background: url("../img/tc.png") 0 center no-repeat;
+}
+
+.list li:hover {
+    background-color: rgba(218, 104, 31, 0.8);
+    border-radius: 4px;
+}
+
+.list li:active,
+#active {
+    background-color: rgb(111, 113, 134);
+    border-radius: 4px;
+}
+
+.list a {
+    color: white;
+    display: inline-block;
+    padding-left: 40px;
+    width: 90%;
+}
+
+
+/*右边*/
+.right {
+    position: relative;
+    width: 85%;
+}
+
+#indexright {
+    width: 100%;
+}
+
+/*右边所在位置栏*/
+.location {
+    margin: 10px 0;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #e6eaf6;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, rgba(254, 254, 254, 0.8), rgba(255, 255, 255, 0.6), rgba(246, 250, 253));
+    color: #4a4a4a;
+    padding-left: 30px;
+}
+
+.location strong {
+    background: url("../img/home.png") 0 center no-repeat;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.location span {
+    color: #2179a9;
+    font-weight: bold;
+}
+
+/*搜索信息栏*/
+.search {
+    height: 50px;
+    line-height: 50px;
+    background: #f6fafd;
+    padding-left: 24px;
+    color: #000;
+}
+
+.search input[type='text'] {
+    float: left;
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #8ab2d5;
+    /* border-radius: 4px; */
+}
+
+.search input[type='button'] {
+    /* margin-left: 20px; */
+    float: left;
+    margin-top: 10px;
+    width: 32px;
+    /* padding: 0 20px; */
+    height: 32px;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    background: #87c212 url("../img/search.png") center no-repeat;
+}
+
+.search input[type='button']:hover {
+    outline: none;
+    background-color: #5d8410;
+}
+
+.search a {
+    width: 80px;
+    padding-left: 40px;
+    float: right;
+    margin: 10px 60px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #0c89de;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    background: #47acf1 url("../img/tianjia.png") 10px center no-repeat;
+    display: inline-block;
+}
+
+.search a:hover,
+.search a:active {
+    background-color: #0778c5;
+}
+
+.search span {
+    float: left;
+    margin-left: 10px;
+}
+
+.search select {
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #0c89de;
+    outline: none;
+}

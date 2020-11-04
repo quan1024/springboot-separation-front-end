@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <meta name="author" content="order by dede58.com" />
+    <title>系统登录 - 游戏管理系统</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="https://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body class="login_bg">
+    <div class="left-part">
+        <h1>游戏管理系统</h1>
+    </div>
+    <div class="loginBOx">
+        <div class="loginCont">
+            <h2>欢迎注册，游戏管理系统</h2>
+            <form class="loginForm" >
+                <ul>
+                    <li>
+                        <input id="username" type="text" name="username" placeholder="请输入用户名" required />
+                    </li>
+                    <li>
+                        <input id="password" type="password" name="password" placeholder="请输入密码" required />
+                    </li>
+                    <li>
+                        <input type="button" value="登录" id="login" />
+                        <input type="button" value="注册" id="register"/><br>
+                        <input type="checkbox" checked="checked">
+                        <span>我已阅读并同意相关服务条款和隐私政策</span>
+                    </li>
+                </ul>
+            </form>
+            <div class="footer">
+                <p>Copyright © 1998-2020QuanTeam All Rights Reserved</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script>
+        window.onload = function () {
+            $("#login").click(function () {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var url = "http://101.201.102.232:8088/api/login?username=" + username + "&password=" +
+                    password;
+                //var url="http://101.201.102.232:8088/api/login?username="+$("#user").val()+"&password="+$("#mima").val();
+                var httpRequest = new XMLHttpRequest(); //第一步：建立所需的对象
+                httpRequest.open('GET', url,
+                    true); //第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+                httpRequest.send(); //第三步：发送请求  将请求参数写在URL中
+                /**
+                 * 获取数据后的处理程序
+                 */
+
+                httpRequest.onreadystatechange = function () {
+                    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                        var json = httpRequest.responseText; //获取到json字符串，还需解析
+                        console.log(json);
+
+                        if (json == 1) {
+                            
+                            window.location.href="index.html";
+
+
+                        } else {
+                            alert("用户名或密码有误！");
+
+                        }
+                    }
+                };
+
+            });
+            $("#register").click(function () {
+              $.ajax({
+                type: "POST",
+                url: "http://101.201.102.232:8088/api/register", //访问的链接
+                data: {
+                    username: $("#username").val(),
+                    password: $("#password").val()
+                 },
+                dataType: "json", //数据格式设置为jsonp
+                json: "callback", //Jquery生成验证参数的名称
+                success: function (data) {
+                  if (data == 1) {
+                            alert("注册成功！");
+                        } else {
+                            alert("此用户名已被使用！");
+                        }
+                },
+                error: function (e) {
+                  alert("error");
+                },
+              });
+
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quan.mapper.PlayerMapper">
+<!--    <select id="findAll" resultType="User">-->
+<!--                void addHero(Hero hero);-->
+<!--                void deleteHero(Hero hero);-->
+<!--                void updateHero(Hero hero);-->
+<!--                Hero selHero(Hero hero);-->
+<!--                List<Hero> selAllHero(List<Hero> list);-->
+<!--    </select>-->
+    <insert id="addPlayer">
+        insert into Player values(#{id},#{name},#{degree},#{playhero})
+    </insert>
+    <delete id="deletePlayer" parameterType="java.lang.Integer">
+        delete from Player where id=#{id}
+    </delete>
+    <select id="selectPlayerById" parameterType="com.quan.entity.Player" resultType="com.quan.entity.Player">
+        select * from Player where id=#{id}
+    </select>
+    <select id="selectAllPlayer" resultType="com.quan.entity.Player">
+        select * from Player
+    </select>
+    <update id="updatePlayerById" parameterType="com.quan.entity.Player">
+        update Player set name=#{name},degree=#{degree},playhero=#{playhero} where id = #{id}
+    </update>
+</mapper>

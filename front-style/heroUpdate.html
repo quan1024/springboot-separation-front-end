@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8" />
+  <meta name="author" content="order by dede58.com" />
+  <title>游戏管理系统</title>
+  <link rel="stylesheet" href="css/public.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!--头部-->
+  <header class="publicHeader">
+    <h1><a href="index.html" id="shouye">游戏管理系统</a></h1>
+
+    <div class="publicHeaderR">
+      <div class="touxiang"></div>
+      <p>
+        <span>下午好！</span><span style="color: #fff21b"> Admin</span> ,
+        欢迎你！
+      </p>
+      <a href="login.html">退出</a>
+    </div>
+  </header>
+  <!--时间-->
+  <section class="publicTime">
+    <span id="time"></span>
+  </section>
+  <!--主体内容-->
+  <section class="publicMian">
+    <div class="left">
+      <h2 class="leftH2">
+        <span class="span1"></span>功能列表 <span></span>
+      </h2>
+      <nav>
+        <ul class="list">
+          <li id="active"><a href="heroList.html">英雄管理</a></li>
+          <li><a href="userList.html">玩家管理</a></li>
+          <li><a href="password.html">密码修改</a></li>
+          <li><a href="login.html">退出系统</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="right">
+      <div class="location">
+        <strong>你现在所在的位置是:</strong>
+        <span>英雄管理页面 >> 英雄编辑页面</span>
+      </div>
+      <div class="providerAdd">
+        <form>
+          <label for="ip1">名称：</label><input type="text" id="ip1" placeholder="" readonly="readonly"></input><br>
+          <label for="ip2">血量：</label><input type="text" id="ip2"></input><br>
+          <label for="ip3">护甲：</label><input type="text" id="ip3"></input><br>
+          <label for="ip4">移速：</label><input type="text" id="ip4"></input><br>
+          <button type="button" class="hrupbutton" onclick="heroEdit()">编辑</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <footer class="footer"></footer>
+  <script src="js/time.js"></script>
+  <script src="1.js"></script>
+  <script>
+    $(function () {
+      setInterval(fn, 1000);
+    })
+  </script>
+</body>
+
+</html>
